@@ -11,8 +11,8 @@ htmlP{
 /*    border:2px solid #ffff00;*/
     height:20px !important;
     width:20px  !important;
-    top:+300px;
-    left:50%;
+    top:250px;
+    left:250px;
     z-index:1;
 }
 #food{
@@ -34,6 +34,15 @@ p {
  z-index:2;
  opacity:0.6;
 }
-p:first-of-type{
+.bold{
  opacity: 1;
+}
+.evilsnake{
+background-color:#e74c3c;
+/*    border:2px solid #ffff00;*/
+height:20px !important;
+width:20px  !important;
+top: 100px !important;
+left: 100px !important;
+z-index:1;
 }
