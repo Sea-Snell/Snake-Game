@@ -28,9 +28,9 @@ function addSnakePiece(){
     }
         
     snake.push(newSnake);
-    
 }
-    
+
+
 $(document).ready(function() {
     foodRandomizer();
     $('.snake').css('left', x);
@@ -41,12 +41,10 @@ $(document).ready(function() {
     $('#snakey').html(y);
     $('#score').html(score);
     console.log('started game!');
-    
+    window.setInterval(frame, 1000/20);
     addSnakePiece();
     addSnakePiece();
     addSnakePiece();
-    
-    window.setInterval( frame, 1000/15);
 })
     
 $(document).keydown(function(key){
@@ -68,7 +66,6 @@ function hitTest(el1, el2){
     
     return (xTest && yTest);
 }
-
 function frame(){
     console.log('running frame', 'direction:', direction);
     // - Update Text
@@ -107,8 +104,10 @@ function frame(){
     if(hitTest(snake[0], $('#food'))){
         foodRandomizer();
         addSnakePiece();
+        console.log("ate food");
         score ++;
         $('#score').html(score);
+        console.log("score: ", score);
     }
     for(var i = 2; i < snake.length; i++) {
         if(hitTest(snake[0], snake[i])) {
@@ -118,13 +117,14 @@ function frame(){
             $('#score').html(score);
             snake = [];
             $('.snake').remove();
+            foodRandomizer();
             addSnakePiece();
             addSnakePiece();
             addSnakePiece();
         }
     }
-   // if(score > highScore) {
+    // if(score > highScore) {
    // highScore = score;
     //}
     //$('#highScore').html(highScore);
-}; // end document.keydown
+}; // end frame
