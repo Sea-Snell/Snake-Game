@@ -1,4 +1,6 @@
+
 //var highScore = 0;
+//var game;
 var score = 0;
 var w = 87;
 var s = 83;
@@ -9,6 +11,7 @@ var y = 250;
 var direction = 'left';
 var foodx, foody;
 var snakeHead;
+var evilLength;
 
 var foodRandomizer = function() { 
     foodx = Math.floor((Math.random() * 500)+1);
@@ -32,6 +35,7 @@ function addSnakePiece(){
 
 
 $(document).ready(function() {
+   // game = "on";
     foodRandomizer();
     $('.snake').css('left', x);
     $('.snake').css('top', y);
@@ -109,20 +113,47 @@ function frame(){
         $('#score').html(score);
         console.log("score: ", score);
     }
+    
     for(var i = 2; i < snake.length; i++) {
         if(hitTest(snake[0], snake[i])) {
+           // game = "off";
             console.log("game over");
             var die = confirm("you lost do you want to play again");
             score = 0;
             $('#score').html(score);
             snake = [];
             $('.snake').remove();
+           // game = "on";
             foodRandomizer();
             addSnakePiece();
             addSnakePiece();
             addSnakePiece();
         }
     }
+    
+   /* for(var x = 1; i < evilLength; i++) {
+        if(hitTest(snake[x], evilSnake[0])) {
+            $('.snake').remove();    
+            Length = (snake.length);
+            snake = [];
+            for(var i = 0; i < Length - 1; i++){
+                addSnakePiece();
+            }
+        }
+    }
+    
+    for(var x = 1; i < evilLength; i++) {
+        if(hitTest(snake[0], evilSnake[x])) {
+            $('.snake').remove();
+            Length = (snake.length);
+            snake = [];
+            for(var i = 0; i < Length + 1; i++){
+                addSnakePiece();
+            }
+            score++;
+            $('#score').html(score);
+        }
+    }*/
     // if(score > highScore) {
    // highScore = score;
     //}
