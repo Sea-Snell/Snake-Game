@@ -37,12 +37,13 @@ p {
 .bold{
  opacity: 1;
 }
-.evilsnake{
+/*.evilsnake{
+position: absolute;
 background-color:#e74c3c;
-/*    border:2px solid #ffff00;*/
+    border:2px solid #ffff00;
 height:20px !important;
 width:20px  !important;
-top: 100px !important;
-left: 100px !important;
+top:;
+left:s;
 z-index:1;
-}
+}*/
